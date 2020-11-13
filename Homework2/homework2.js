@@ -21,7 +21,7 @@ console.log(typeof res4); // "number"
 
 //------------------------------------------------------------Task 2------------------------------------------------------------
 
-let number = Number(prompt("Enter a number: ", ""));
+const number = Number(prompt("Enter a number: ", ""));
 if(number % 2 == 0 && number % 7 == 0){
     console.log("Number is even and is a multiple of 7!");
 }
@@ -53,7 +53,7 @@ for(let i = 0; i < array.length; i++){
 
 //------------------------------------------------------------Task 4------------------------------------------------------------
 
-let cities = ["Rome", "Lviv", "Warsaw", "Lviv", "Warsaw", "Lviv", "Warsaw"]; 
+const cities = ["Rome", "Lviv", "Warsaw", "Lviv", "Warsaw", "Lviv", "Warsaw"]; 
 let string = new String();
 for (let i = 0; i < cities.length; i++) {
     if(i + 1 !== cities.length){
@@ -67,7 +67,7 @@ console.log(cities);
 console.log(string);
 
 //------------------------------------------------------------Task 5------------------------------------------------------------
-let isAdult = Number(prompt("Are you 18 years old?","Enter your age."));
+const isAdult = Number(prompt("Are you 18 years old?","Enter your age."));
 
 if(isAdult >= 18){
     alert("Ви досягли повнолітнього віку");
@@ -81,9 +81,9 @@ else{
 
 //------------------------------------------------------------Task 6------------------------------------------------------------
 
-let a = Number(prompt("Enter length of first side of triangle: ", ""));
-let b = Number(prompt("Enter length of second side of triangle: ", ""));
-let c = Number(prompt("Enter length of third side of triangle: ", ""));
+const a = Number(prompt("Enter length of first side of triangle: ", ""));
+const b = Number(prompt("Enter length of second side of triangle: ", ""));
+const c = Number(prompt("Enter length of third side of triangle: ", ""));
 const triangle_square = 0;
 
 if( (!isNaN(a) && a >= 1) && (!isNaN(b) && b >= 1) && (!isNaN(c) && c >= 1) ){
