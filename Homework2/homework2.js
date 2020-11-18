@@ -3,15 +3,15 @@
 let x = 1;
 let y = 2;
 
-let res1 = String(x) + String(y)
+let res1 = String(x) + String(y);
 console.log(res1); // "12"
 console.log(typeof res1); // "string"
 
-let res2 = Boolean(x) + String(y)
+let res2 = Boolean(x) + String(y);
 console.log(res2); // "true2"
 console.log(typeof res2); // "string"
 
-let res3 = Boolean(x) && Boolean(y)
+let res3 = Boolean(x) && Boolean(y);
 console.log(res3); // true
 console.log(typeof res3); // "boolean"
 
@@ -22,17 +22,14 @@ console.log(typeof res4); // "number"
 //------------------------------------------------------------Task 2------------------------------------------------------------
 
 const number = Number(prompt("Enter a number: ", ""));
-if(number % 2 == 0 && number % 7 == 0){
-    console.log("Number is even and is a multiple of 7!");
-}
-else if(number % 7 == 0){
-    console.log("Number is a multiple of 7!");
-}
-else if(number % 2 == 0){
-    console.log("Number is even!");
-}
-else{
-    console.log("Number is default!");
+if (number % 2 == 0 && number % 7 == 0) {
+  console.log("Number is even and is a multiple of 7!");
+} else if (number % 7 == 0) {
+  console.log("Number is a multiple of 7!");
+} else if (number % 2 == 0) {
+  console.log("Number is even!");
+} else {
+  console.log("Number is default!");
 }
 
 //------------------------------------------------------------Task 3------------------------------------------------------------
@@ -43,40 +40,37 @@ array.push("hello");
 array.push(true);
 array.push(null);
 document.write("<p>Task 3: </p>");
-document.write("Array length = ", array.length, "<br \/>");
+document.write("Array length = ", array.length, "<br />");
 array[4] = prompt("Enter something: ", "");
-document.write("Fifth element of array: ", array[4], "<br \/><br \/>");
+document.write("Fifth element of array: ", array[4], "<br /><br />");
 array.shift();
-for(let i = 0; i < array.length; i++){
-    document.write((i+1) + "th element of array = " + array[i] + "<br \/>");
+for (let i = 0; i < array.length; i++) {
+  document.write(i + 1 + "th element of array = " + array[i] + "<br />");
 }
 
 //------------------------------------------------------------Task 4------------------------------------------------------------
 
-const cities = ["Rome", "Lviv", "Warsaw", "Lviv", "Warsaw", "Lviv", "Warsaw"]; 
+const cities = ["Rome", "Lviv", "Warsaw", "Lviv", "Warsaw", "Lviv", "Warsaw"];
 let string = new String();
 for (let i = 0; i < cities.length; i++) {
-    if(i + 1 !== cities.length){
-        string += (cities[i] + "*");
-    }
-    else{
-        string += (cities[i]);
-    }
+  if (i + 1 !== cities.length) {
+    string += cities[i] + "*";
+  } else {
+    string += cities[i];
+  }
 }
 console.log(cities);
 console.log(string);
 
 //------------------------------------------------------------Task 5------------------------------------------------------------
-const isAdult = Number(prompt("Are you 18 years old?","Enter your age."));
+const isAdult = Number(prompt("Are you 18 years old?", "Enter your age."));
 
-if(isAdult >= 18){
-    alert("Ви досягли повнолітнього віку");
-}
-else if(isAdult < 10){
-    alert("Ви ще надто молоді.");
-}
-else{
-    alert("Ви вже не надто молоді, але ще не повнолітні.");
+if (isAdult >= 18) {
+  alert("Ви досягли повнолітнього віку");
+} else if (isAdult < 10) {
+  alert("Ви ще надто молоді.");
+} else {
+  alert("Ви вже не надто молоді, але ще не повнолітні.");
 }
 
 //------------------------------------------------------------Task 6------------------------------------------------------------
@@ -86,39 +80,104 @@ const b = Number(prompt("Enter length of second side of triangle: ", ""));
 const c = Number(prompt("Enter length of third side of triangle: ", ""));
 const triangle_square = 0;
 
-if( (!isNaN(a) && a >= 1) && (!isNaN(b) && b >= 1) && (!isNaN(c) && c >= 1) ){
-    if(a + b < c || a + c < b || b + c < a){
-        console.log("Triangle with sides " + a + " " + b + " " + c + " does not exist.");
-    }
-    else{
-        const triangle_square = calculate_triangle_square(a, b, c);
-    }
-}
-else{
-    console.log("Incorrect data.");
+if (!isNaN(a) && a >= 1 && !isNaN(b) && b >= 1 && !isNaN(c) && c >= 1) {
+  if (a + b < c || a + c < b || b + c < a) {
+    console.log(
+      "Triangle with sides " + a + " " + b + " " + c + " does not exist."
+    );
+  } else {
+    const triangle_square = calculate_triangle_square(a, b, c);
+    console.log(checkRightTriangle(a, b, c));
+  }
+} else {
+  console.log("Incorrect data.");
 }
 
-function calculate_triangle_square(a, b, c){
-    const p = (a + b + c)/2;
-    if( (p === a) || (p === b) || (p === c) ){
-        console.log("Triangle with sides " + a + " " + b + " " + c + " does not exist.");
-        return 0;
-    }
-    //console.log(a);
-    //console.log(b);
-    //console.log(c);
-    //console.log(p);
-    const triangle_square = (p*(p-a)*(p-b)*(p-c))**(1/2);
-    console.log("Triangle square = ", triangle_square);
-    return triangle_square;
+function checkRightTriangle(a, b, c) {
+  let message = "";
+  let max = a;
+  let sideA, sideB;
+  if (max <= b && max >= c) {
+    max = b;
+    sideA = a;
+    sideB = c;
+  } else if (max <= c) {
+    max = c;
+    sideA = a;
+    sideB = b;
+  }
+  const hypotenuse = Math.sqrt(Math.pow(sideA, 2) + Math.pow(sideB, 2));
+  if (max == hypotenuse) {
+    message = "Triangle is right!";
+  } else {
+    message = "Triangle is not right!";
+  }
+
+  return message;
+}
+
+function calculate_triangle_square(a, b, c) {
+  const p = (a + b + c) / 2;
+  if (p === a || p === b || p === c) {
+    console.log(
+      "Triangle with sides " + a + " " + b + " " + c + " does not exist."
+    );
+    return 0;
+  }
+  //console.log(a);
+  //console.log(b);
+  //console.log(c);
+  //console.log(p);
+  const triangle_square = (
+    (p * (p - a) * (p - b) * (p - c)) **
+    (1 / 2)
+  ).toFixed(3);
+  console.log("Triangle square = ", triangle_square);
+  return triangle_square;
 }
 
 //------------------------------------------------------------Task 7------------------------------------------------------------
 
-elem.onclick = function() {
-    const date = new Date;
-    const time = date.getHours();
-    if(time == 23 || time < 5){
+elem.onclick = function () {
+  const date = new Date();
+  const time = date.getHours();
+  switch (time) {
+    case 23:
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+      alert("Доброї ночі!");
+      break;
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+      alert("Доброго ранку!");
+      break;
+    case 11:
+    case 12:
+    case 13:
+    case 14:
+    case 15:
+    case 16:
+      alert("Доброго дня!");
+      break;
+    case 17:
+    case 18:
+    case 19:
+    case 20:
+    case 21:
+    case 22:
+      alert("Доброго вечора!");
+      break;
+    default:
+      break;
+  }
+  /*if(time == 23 || time < 5){
         alert("Доброї ночі!")
     }
     else if(time >= 5 && time < 11){
@@ -130,6 +189,5 @@ elem.onclick = function() {
     else if(time >= 17 && time < 23){
         alert("Доброго вечора!")
     }
-    
+    */
 };
-
