@@ -15,7 +15,6 @@ function testThrow(exeption) {
 // ************************************** Task 2 ************************************** 
 
 function calcRectangleArea(width, height) {
-  //чи параметри є числами
   if (isNaN(width) || isNaN(height)) {
     throw "Nan as param";
   }
