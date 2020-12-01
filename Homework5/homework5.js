@@ -1,36 +1,33 @@
 // ************************************** Task 1 **************************************
 
-const mentor = { 
-  course: "JS fundamental", 
+const mentor = {
+  course: "JS fundamental",
   duration: 3,
-  direction: "web-development" 
+  direction: "web-development",
 };
 
 propsCount(mentor);
 
-function propsCount(currentObject){
+function propsCount(currentObject) {
   console.log(Object.keys(currentObject).length);
 }
 
-// ************************************** Task 2 ************************************** 
+// ************************************** Task 2 **************************************
 
-const mentor = { 
-  course: "JS fundamental", 
-  direction: "web-development", 
+const mentor = {
+  course: "JS fundamental",
+  direction: "web-development",
   duration: 3,
   smart: true,
-  rate: 10
+  rate: 10,
 };
 
 showProps(mentor);
 
-function showProps(obj){
-
+function showProps(obj) {
   console.log(Object.entries(obj));
   console.log(Object.values(obj));
-
 }
-
 
 // ************************************** Task 3 **************************************
 
@@ -97,44 +94,61 @@ const student = new Student("Petro", "Petrenko", 2015);
 console.log(student.showFullName("Petrovych"));
 console.log("Current course: " + student.showCourse());
 
-
 // ************************************** Task 4 **************************************
 
-class Worker{
+class Worker {
+  #experience = 1.2;
 
-  _experience = 1.2;
-
-  constructor(fullName, dayRate, workingDays){
+  constructor(fullName, dayRate, workingDays) {
     this.fullName = fullName;
     this.dayRate = dayRate;
     this.workingDays = workingDays;
     this.salary = this.dayRate * this.workingDays;
   }
 
-  get showExp(){
-    return this._experience;
+  get showExp() {
+    return this.#experience;
   }
 
-  set experience(value){
-    this._experience = value;
+  set experience(value) {
+    this.#experience = value;
   }
 
-  calcSalary(){
-    return this.salary;
-  }
-  showSalary(){
+  showSalary() {
     console.log(this.fullName, "salary: ", this.salary);
   }
 
-  showSalaryWithExperience(){
-    console.log(this.fullName, "salary: ", this.calcSalary() * this._experience);
+  showSalaryWithExperience() {
+    console.log(this.fullName, "salary: ", this.salary * this.#experience);
+  }
+
+  calcSalaryWithExp() {
+    return this.salary * this.#experience;
+  }
+
+  static workersSalarySort(a, b) {
+    if (a.calcSalaryWithExp() > b.calcSalaryWithExp()) return 1;
+    if (b.calcSalaryWithExp() > a.calcSalaryWithExp()) return -1;
+
+    return 0;
+  }
+
+  static workersSalaryShow(workersArr) {
+    console.log("Sorted salary: \n");
+    for (let i = 0; i < workersArr.length; i++) {
+      console.log(
+        workersArr[i].fullName,
+        ": ",
+        workersArr[i].calcSalaryWithExp()
+      );
+    }
   }
 }
 
-//let worker1 = new Worker("John Johnson", 20, 23);
-//let worker1 = new Worker("Tom Tomson", 48, 22);
-let worker1 = new Worker("Andy Ander", 29, 23);
-console.log(worker1.fullName);                 
+let worker1 = new Worker("John Johnson", 20, 23);
+let worker2 = new Worker("Tom Tomson", 48, 22);
+let worker3 = new Worker("Andy Ander", 29, 23);
+console.log(worker1.fullName);
 worker1.showSalary();
 console.log("New experience: " + worker1.showExp);
 worker1.showSalaryWithExperience();
@@ -142,6 +156,25 @@ worker1.experience = 1.5;
 console.log("New experience: " + worker1.showExp);
 worker1.showSalaryWithExperience();
 
+console.log(worker2.fullName);
+worker2.showSalary();
+console.log("New experience: " + worker2.showExp);
+worker2.showSalaryWithExperience();
+worker2.experience = 1.5;
+console.log("New experience: " + worker2.showExp);
+worker2.showSalaryWithExperience();
+
+console.log(worker3.fullName);
+worker3.showSalary();
+console.log("New experience: " + worker3.showExp);
+worker3.showSalaryWithExperience();
+worker3.experience = 1.5;
+console.log("New experience: " + worker3.showExp);
+worker3.showSalaryWithExperience();
+
+const workers = [worker1, worker2, worker3];
+const tempArr = workers.sort(Worker.workersSalarySort);
+Worker.workersSalaryShow(tempArr);
 
 // ************************************** Task 5 **************************************
 
