@@ -1,0 +1,18 @@
+{
+  "name": "homework11",
+  "version": "1.0.0",
+  "description": "",
+  "main": "homework11.js",
+  "dependencies": {
+    "date-and-time": "^0.14.1",
+    "express": "^4.17.1",
+    "os": "^0.1.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
