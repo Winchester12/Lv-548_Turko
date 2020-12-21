@@ -14,7 +14,6 @@ http.createServer( function(request, response) {
     response.write("System work time: " + os.uptime()/60 + "<br>");
     response.write("System work directory: " + __dirname + "<br>");
     response.write("Server file name: " + path.basename(__filename) + "<br>");
-    response.write("personalModule: " + personalModule.moduleFunc(os.hostname) + "<br>");
     // Send the response body as "Testing NodeJS server"
     response.end('Testing NodeJS server\n');
  }).listen(5000);
