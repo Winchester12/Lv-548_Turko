@@ -1,0 +1,71 @@
+body{
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
+#controlPanel{
+    display: grid;
+    grid-template-columns: auto;
+    margin: auto;
+}
+
+#controlPanel > *{
+   margin: 10px;
+}
+
+#roomsContainer {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: auto auto auto; /*Make the grid smaller than the container*/
+    grid-gap: 100px;
+    background-color: #2196F3;
+    padding: 10px;
+    border-radius: 4px;
+}
+.room {
+    display: grid;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+    border-style: groove;
+}
+
+.room > *{
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.component{
+    display: grid;
+    background-color: rgba(237, 237, 248, 0.137);
+    margin: 10px;
+    border-style: groove;
+}
+
+.componentsContainer{
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.component > *{
+    margin: 10px;
+    text-align: center;
+}
+
+.ability{
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    justify-content: center;
+    background-color: rgba(152, 163, 214, 0.8);
+    margin: 10px;
+}
+
+.ability > *{
+    width: auto;
+}
+
+.abilitiesContainer{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
