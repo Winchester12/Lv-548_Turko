@@ -526,7 +526,6 @@ function addAbility() {
     "componentInputWithAbilityInfo"
   )[0]; //get input
 
-  console.log("Ability counter: " + Ability.abilitiesCounter);
   const IDs = abilityInfoInput.className.match(/\d+/g);
   const newAbilityName = abilityInfoInput.value;
 
@@ -534,7 +533,6 @@ function addAbility() {
   const currentRoomID = IDs[0];
   const currentComponentID = IDs[1];
 
-  console.log("Ability counter: " + Ability.abilitiesCounter);
   house
     .findRoomById(currentRoomID)
     .findComponentById(currentComponentID)
