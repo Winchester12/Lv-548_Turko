@@ -17,9 +17,6 @@ class House {
     return this.#rooms;
   }
 
-  /**
-   * @param {string} name
-   */
   set room(name) {
     this.#rooms.push(new Room(name));
   }
