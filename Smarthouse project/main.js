@@ -4,8 +4,7 @@ class House {
   #rooms = [];
   #alarm = {
     power: true,
-    scream: false,
-    //todo
+    scream: false
   };
   #mainDoor = true;
 
@@ -386,8 +385,8 @@ function alarmButtonAction() {
 function addHeatPanel() {
   document.getElementById("heatController").innerHTML = ``;
   const heatController = document.getElementById("heatController");
-  const heatPanel = document.createElement("div"); //open/close disable/enable...
-  const heatRoomsControl = document.createElement("div"); //rooms
+  const heatPanel = document.createElement("div");
+  const heatRoomsControl = document.createElement("div");
 
   heatRoomsControl.className = "RoomsTemperatureControl";
   for (let i = 0; i <= house.rooms[house.rooms.length - 1].id; i++) {
@@ -395,7 +394,7 @@ function addHeatPanel() {
       continue;
     }
 
-    const heatRoomControl = document.createElement("div"); //room
+    const heatRoomControl = document.createElement("div");
     const incBut = document.createElement("button");
     incBut.textContent = "+";
     const decBut = document.createElement("button");
