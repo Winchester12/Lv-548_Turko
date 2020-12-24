@@ -7,7 +7,7 @@ const jsonBook = require('./books.json');
 
 const corsOptions = {
     origin: 'http://localhost',
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+    optionsSuccessStatus: 200,
 }
 
 app.use(cors(corsOptions))
@@ -25,5 +25,3 @@ app.get('/task2', (req, res) => {
 app.listen(80, function () {
     console.log('CORS-enabled web server listening on port 80')
 })
-
-
