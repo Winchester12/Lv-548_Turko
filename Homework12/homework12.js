@@ -10,7 +10,7 @@ async function getData() {
   const data = await fetch(url, {
       headers: {
           'Origin': "http://localhost",
-          "optionsSuccessStatus": 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+          "optionsSuccessStatus": 200, 
       }
   });
 
@@ -34,7 +34,7 @@ async function getData2() {
   const data = await fetch(url, {
       headers: {
           'Origin': "http://localhost",
-          "optionsSuccessStatus": 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+          "optionsSuccessStatus": 200,
       }
   });
 
