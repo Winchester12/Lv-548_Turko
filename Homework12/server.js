@@ -4,7 +4,6 @@ const moduleP = require('./my_modules/personalmodule');
 const app = express();
 const jsonBook = require('./books.json');
 
-
 const corsOptions = {
     origin: 'http://localhost',
     optionsSuccessStatus: 200,
